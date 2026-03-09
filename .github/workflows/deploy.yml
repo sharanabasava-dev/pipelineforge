@@ -1,0 +1,45 @@
+name: Deploy PipelineForge
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Login to AWS ECR
+      run: |
+        aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | \
+        docker login --username AWS --password-stdin \
+        961341513660.dkr.ecr.ap-south-1.amazonaws.com
+
+    - name: Build Docker image
+      run: docker build -t pipelineforge .
+
+    - name: Tag & Push to ECR
+      run: |
+        docker tag pipelineforge:latest \
+        961341513660.dkr.ecr.ap-south-1.amazonaws.com/pipelineforge:latest
+        docker push \
+        961341513660.dkr.ecr.ap-south-1.amazonaws.com/pipelineforge:latest
+
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ubuntu
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          aws ecr get-login-password --region ap-south-1 | \
+          docker login --username AWS --password-stdin \
+          961341513660.dkr.ecr.ap-south-1.amazonaws.com
+          docker pull 961341513660.dkr.ecr.ap-south-1.amazonaws.com/pipelineforge:latest
+          docker stop pipelineforge || true
+          docker rm pipelineforge || true
+          docker run -d --name pipelineforge -p 80:80 \
+          961341513660.dkr.ecr.ap-south-1.amazonaws.com/pipelineforge:latest
