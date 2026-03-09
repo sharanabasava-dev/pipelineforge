@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -370,14 +369,14 @@ footer{position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--surfa
         <div class="ci"><div class="ci-icon">📍</div><div><div class="ci-label">Location</div><div class="ci-val">Bengaluru, Karnataka, India</div></div></div>
         <a class="ci" href="https://github.com/sharanabasava-dev" target="_blank"><div class="ci-icon">🐙</div><div><div class="ci-label">GitHub</div><div class="ci-val">github.com/sharanabasava-dev</div></div></a>
       </div>
-      <div class="form">
+      <form class="form" action="https://formspree.io/f/mwvrvbzd" method="POST">
         <div class="form-row">
-          <div class="fg"><label>First Name</label><input type="text" placeholder="Your name"/></div>
-          <div class="fg"><label>Last Name</label><input type="text" placeholder="Last name"/></div>
+          <div class="fg"><label>First Name</label><input type="text" name="first_name" placeholder="Your name" required/></div>
+          <div class="fg"><label>Last Name</label><input type="text" name="last_name" placeholder="Last name" required/></div>
         </div>
-        <div class="fg"><label>Email</label><input type="email" placeholder="you@company.com"/></div>
+        <div class="fg"><label>Email</label><input type="email" name="email" placeholder="you@company.com" required/></div>
         <div class="fg"><label>Service</label>
-          <select>
+          <select name="service">
             <option value="">Select a service...</option>
             <option>AWS Cloud Solutions</option>
             <option>CI/CD Pipelines</option>
@@ -387,9 +386,9 @@ footer{position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--surfa
             <option>Workflow Automation</option>
           </select>
         </div>
-        <div class="fg"><label>Message</label><textarea placeholder="Tell me about your project, stack, and goals..."></textarea></div>
-        <button class="submit-btn" id="submit-btn">Send Message</button>
-      </div>
+        <div class="fg"><label>Message</label><textarea name="message" placeholder="Tell me about your project, stack, and goals..." required></textarea></div>
+        <button type="submit" class="submit-btn" id="submit-btn">Send Message</button>
+      </form>
     </div>
   </div>
 </div>
@@ -813,14 +812,14 @@ footer{position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--surfa
         <div class="ci"><div class="ci-icon">📍</div><div><div class="ci-label">Location</div><div class="ci-val">Bengaluru, Karnataka, India</div></div></div>
         <a class="ci" href="https://github.com/sharanabasava-dev" target="_blank"><div class="ci-icon">🐙</div><div><div class="ci-label">GitHub</div><div class="ci-val">github.com/sharanabasava-dev</div></div></a>
       </div>
-      <div class="form">
+      <form class="form" action="https://formspree.io/f/mwvrvbzd" method="POST">
         <div class="form-row">
-          <div class="fg"><label>First Name</label><input type="text" placeholder="Your name"/></div>
-          <div class="fg"><label>Last Name</label><input type="text" placeholder="Last name"/></div>
+          <div class="fg"><label>First Name</label><input type="text" name="first_name" placeholder="Your name" required/></div>
+          <div class="fg"><label>Last Name</label><input type="text" name="last_name" placeholder="Last name" required/></div>
         </div>
-        <div class="fg"><label>Email</label><input type="email" placeholder="you@company.com"/></div>
+        <div class="fg"><label>Email</label><input type="email" name="email" placeholder="you@company.com" required/></div>
         <div class="fg"><label>Service</label>
-          <select>
+          <select name="service">
             <option value="">Select a service...</option>
             <option>AWS Cloud Solutions</option>
             <option>CI/CD Pipelines</option>
@@ -830,9 +829,9 @@ footer{position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--surfa
             <option>Workflow Automation</option>
           </select>
         </div>
-        <div class="fg"><label>Message</label><textarea placeholder="Tell me about your project, stack, and goals..."></textarea></div>
-        <button class="submit-btn" id="submit-btn">Send Message</button>
-      </div>
+        <div class="fg"><label>Message</label><textarea name="message" placeholder="Tell me about your project, stack, and goals..." required></textarea></div>
+        <button type="submit" class="submit-btn" id="submit-btn">Send Message</button>
+      </form>
     </div>
   </div>
 </div>
