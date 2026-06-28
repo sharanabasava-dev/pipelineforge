@@ -1,4 +1,4 @@
-# Use nginx as the base image
+# Use nginx as the base image .#
 FROM nginx:alpine
 
 # Copy your website into nginx's serving folder
